@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model = "name" placeholder="你的名字">
+        <h1>您好！{{ name }}</h1>
+        <h1>您正在阅读：{{ book }}</h1>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: 'Client',
+                token: 'Baron',
+                book: '《Vue.js实战》'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directives指令</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="if_show">显示这段文本</p>
+        <a v-bind: href='url'>链接</a>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                if_show: true,
+                url: 'https://www.github.com'
+            }
+        })
+    </script>
+</body>
+</html>

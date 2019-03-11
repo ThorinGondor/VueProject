@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue过滤器Demo</title>
+</head>
+<body>
+    <div id="showDate">
+        {{ dateTime | dateFormatRender }} <!--可以设置过滤器，数据渲染进入之前需要通过过滤器-->
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var showDate = new Vue({
+            el: '#showDate',
+            data: {
+                dateTime: new Date()
+            },
+            filters: {dateFormatRender: function (value) { // value即需要过滤的数据
+                    var date = new Date(value);
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    var sec = date.getSeconds();
+                    return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + sec;
+                }},
+            mounted: function () {
+                var _this = this;
+                this.DateTimer = setInterval(function () {
+                    _this.dateTime = new Date();
+                }, 1000)
+            },
+            beforeDestroy: function () {
+                if(this.DateTimer){
+                    clearInterval(this.DateTimer);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

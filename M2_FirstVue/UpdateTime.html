@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="Clock">
+        {{ time }}
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var clock = new Vue({
+            el: '#Clock',
+            data: {
+                current_time: new Date()
+            },
+            mounted: function () {
+                var _this = this;
+                this.timer_function = setInterval(function () {
+                    _this.current_time = new Date();
+                }, 1000)
+            },
+            beforeDestroy: function () {
+                if (this.timer_function){
+                    clearInterval(this.timer_function);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

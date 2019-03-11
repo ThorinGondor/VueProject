@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="render">
+        {{ number/10 }}<br>
+        {{ isOK ? '确定': '取消'}}<br>
+        {{ text.split('.').reverse().join(',') }}<br>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var render = new Vue({
+            el: '#render',
+            data: {
+                number: 100,
+                isOK: false,
+                text: '123.456.789'
+            }
+        })
+    </script>
+</body>
+</html>
