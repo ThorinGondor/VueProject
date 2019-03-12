@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if Demo</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="status === 1">status==1</p>
+        <p v-else-if="status === 2">status==2</p>
+        <p v-else="status === 3">status==3</p>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                status: 3
+            }
+        })
+    </script>
+</body>
+</html>
