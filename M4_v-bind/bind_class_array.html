@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bind class array</title>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="[activeCls, errCls]"></div>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                activeCls: 'active',
+                errCls: 'error'
+            }
+        })
+    </script>
+</body>
+</html>
