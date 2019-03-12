@@ -6,7 +6,8 @@
 </head>
 <body>
     <div id="app">
-        <div v-bind:style="{'color': color, 'fontSize': fontSize + 'px'}"></div>
+        <div v-bind:style="{'color': color, 'fontSize': fontSize + 'px'}">文本</div>
+        <div v-bind:style="styles">文本</div>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script>
@@ -14,7 +15,11 @@
             el: "#app",
             data: {
                 color: 'red',
-                fontSize: 14
+                fontSize: 14,
+                styles: {
+                    color: 'red',
+                    fontSize: 14+'px'
+                }
             }
         })
     </script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-once Demo</title>
+</head>
+<body>
+    <div id="app">
+        <span v-once>{{ message }}</span><!--v-once 作用是定义它的元素或组件只渲染一次，包括元素或组件的所有子节点-->
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: '这是一段文本'
+            }
+        })
+    </script>
+</body>
+</html>
