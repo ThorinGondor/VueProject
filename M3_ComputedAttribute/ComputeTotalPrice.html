@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ComputeDemo</title>
+</head>
+<body>
+    <div id="app">
+        总价：{{ total_price }}
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+           el: "#app",
+           data: {
+               package1: [
+                   {
+                       name: 'iPhone XR',
+                       price: 9700,
+                       count: 2
+                   },
+                   {
+                       name: 'XiaoMi 9',
+                       price: '3200',
+                       count: 1
+                   },
+                   {
+                       name: 'Mazda ECU',
+                       price: '3000',
+                       count: 1
+                   }
+               ],
+               package2: [
+                   {
+                       name: 'iPhone XR',
+                       price: 9700,
+                       count: 2
+                   },
+                   {
+                       name: 'XiaoMi 9',
+                       price: 3200,
+                       count: 1
+                   },
+                   {
+                       name: 'Mazda ECU',
+                       price: 3000,
+                       count: 1
+                   }
+               ],
+               package3: [
+                   {
+                       name: 'iPhone XR',
+                       price: 9700,
+                       count: 2
+                   },
+                   {
+                       name: 'XiaoMi 9',
+                       price: 3200,
+                       count: 1
+                   },
+                   {
+                       name: 'Mazda ECU',
+                       price: 3000,
+                       count: 1
+                   }
+               ]
+           },
+           computed: {
+               total_price: function () {
+                   var total_price = 0;
+                   for (var i = 0; i < this.package1.length; i++){
+                       total_price += this.package1[i].price * this.package1[i].count;
+                   }
+                   for (var j = 0; j < this.package1.length; j++){
+                       total_price += this.package1[j].price * this.package1[j].count;
+                   }
+                   for (var k = 0; k < this.package1.length; k++){
+                       total_price += this.package1[k].price * this.package1[k].count;
+                   }
+                   return total_price;
+               }
+           }
+        });
+    </script>
+</body>
+</html>

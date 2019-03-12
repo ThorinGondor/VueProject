@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Use Computed in Vue.js?</title>
+</head>
+<body>
+    <div id="app_demo">
+        {{ renderedText }}
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app_demo = new Vue({
+            el: "#app_demo",
+            data: {
+                text: '123,456,789'
+            },
+            //遇到复杂的逻辑时应置于计算属性
+            computed: {
+                renderedText: function () {
+                    return this.text.split(',').reverse().join('-');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
