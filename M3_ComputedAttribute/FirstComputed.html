@@ -15,7 +15,7 @@
             data: {
                 text: '123,456,789'
             },
-            //遇到复杂的逻辑时应置于计算属性
+            //遇到复杂的逻辑时应置于计算属性，若data的数据发生变化，则computed也会自动更新，随之发生变化
             computed: {
                 renderedText: function () {
                     return this.text.split(',').reverse().join('-');

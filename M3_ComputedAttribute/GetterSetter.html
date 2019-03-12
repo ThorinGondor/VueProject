@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GetterSetter</title>
+</head>
+<body>
+    <div id="app">
+        姓名：{{ full_name }}
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                first_name: 'Kobe',
+                last_name: 'Bryant'
+            },
+            computed: {
+                full_name: {
+                    // getter函数 是默认存在的方法，用于读取
+                    get: function () {
+                        return this.first_name + ' - ' + this.last_name;
+                    },
+                    // 可使用setter方法 开发者模式下，在console输入：app.full_name = 'Klay Thompson'，即可触发 computed 的 set 函数
+                    set: function (newValue) {
+                        this.first_name = newValue.split(' ')[0];
+                        this.last_name = newValue.split(' ')[1];
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi Class v-bind</title>
+</head>
+<body>
+    <div id="app">
+        <div class="origin" v-bind:class="{'active': isActive, 'error': isError}"></div>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isActive: true,
+                isError: false
+            }
+        })
+    </script>
+</body>
+</html>
