@@ -30,7 +30,7 @@
                 this.DateTimer = setInterval(function () {
                     _this.dateTime = new Date();
                 }, 1000)
-            },
+            },//初始化时调用
             beforeDestroy: function () {
                 if(this.DateTimer){
                     clearInterval(this.DateTimer);

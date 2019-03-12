@@ -7,7 +7,8 @@
 <body>
     <div id="app">
         <p v-if="if_show">显示这段文本</p>
-        <a v-bind: href='url'>链接</a>
+        <a v-bind:href='url'>链接</a><br>
+        <button v-on:click="handle_close">点击隐藏文本</button><!--使用v-on绑定事件监听器-->
     </div>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script>
@@ -16,6 +17,11 @@
             data:{
                 if_show: true,
                 url: 'https://www.github.com'
+            },
+            methods:{
+              handle_close: function () {
+                  this.if_show = !this.if_show;
+              }
             }
         })
     </script>
