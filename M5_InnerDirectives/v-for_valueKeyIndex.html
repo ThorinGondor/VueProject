@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for 还可以遍历对象的属性</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(value, key, index) in User">
+                {{ index }} - {{ key }} : {{ value }}
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                User: {
+                    name: 'Kimi',
+                    age: 34,
+                    gender: 'male'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -6,11 +6,33 @@
 </head>
 <body>
     <div id="app">
-
+        <template v-if="type==='name'">
+            <label>输入用户名：</label>
+            <input placeholder="输入用户名"/>
+        </template>
+        <template v-else-if="type==='email'">
+            <label>输入邮箱：</label>
+            <input placeholder="输入邮箱"/>
+        </template>
+        <button v-on:click="handleClick">点击切换输入类型</button>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script>
-
+        var app = new Vue({
+            el: '#app',
+            data: {
+                type: 'name'
+            },
+            methods: {
+                handleClick: function () {
+                    this.type = this.type === 'name'?'email': 'name';
+                }
+            }
+        });
+        /***
+         * 输入框input键入内容后，点击切换按钮，发现输入框input的内容并没有改变，只是placeholder的内容更改了，说明input元素被复用了，
+         * 如果不想复用元素，在<input/>加入 key='XXX' 即可
+         */
     </script>
 </body>
 </html>
