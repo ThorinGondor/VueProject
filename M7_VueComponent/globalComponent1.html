@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chat Page</title>
+    <title>Global Component Demo 1</title>
 </head>
 <body>
     <div id="app">
@@ -11,6 +11,7 @@
 
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script>
+        //Component全局注册，所有Vue实例都可以使用它
         Vue.component('my-component', {
             template: '<h3>这里是组件的内容</h3>'
         });

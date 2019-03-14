@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Component</title>
+</head>
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var child = {
+            template: '<h3>这里是组件的内容</h3>'
+        };
+        var app = new Vue({
+            el: '#app',
+            //这种方式为局部注册Component，这样仅在该Vue实例中可以使用该组件
+            components: {
+                'my-component': child
+            }
+        })
+    </script>
+</body>
+</html>
