@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dynamic props Demo</title>
+</head>
+<body>
+    <div id="app">
+        <label>
+            <input type="text" v-model="parentMessage"/>
+        </label>
+        <my-component :message="parentMessage"></my-component>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('my-component', {
+            props: ['message'],
+            template: '<h3>{{ message }}</h3>'
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                parentMessage: 'Default'
+            }
+        })
+    </script>
+</body>
+</html>
