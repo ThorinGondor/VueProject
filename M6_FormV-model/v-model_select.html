@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <select v-model="selected" multiple> <!--此处去掉multiple，Vue中的selected改成单字符，即可成为单选下拉框-->
+            <option>html</option>
+            <option value="js">JavaScript</option>
+            <option>Python</option>
+            <option>Vue.js</option>
+            <option>Aurora</option>
+        </select>
+        <p>您选择的项是：{{ selected }}</p>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                selected: ['Python', 'Vue.js']
+            }
+        })
+    </script>
+</body>
+</html>

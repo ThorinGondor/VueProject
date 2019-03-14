@@ -5,6 +5,7 @@
     <title>v-model radio Demo</title>
 </head>
 <body>
+<!--多个radio单选-->
     <div id="app">
         <input type="radio" v-model="picked" value="html" id="html">
         <label for="html">HTML</label>
@@ -18,7 +19,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                picked: 'js'
+                picked: 'js' //picked的值与value的值一致时，就会选中该项，所以启动后默认选中第二项
             }
         })
     </script>

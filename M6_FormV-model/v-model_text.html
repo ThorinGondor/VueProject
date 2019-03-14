@@ -7,7 +7,7 @@
 <body>
     <div id="app">
         <h4>汉字敲出后更新</h4>
-        <input type="text" v-model="message" placeholder="输入内容"/>
+        <input type="text" v-model.trim="message" placeholder="输入内容"/><!--trim可以使得输入内容的前后空格被自动忽略-->
         <p>您输入的内容是：{{ message }}</p>
         <h4>实时更新</h4>
         <input type="text" @input="handleInput" placeholder="实时更新">

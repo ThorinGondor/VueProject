@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model value 绑定多个CheckBox</title>
+</head>
+<body>
+    <!--多个CheckBox绑定v-model，应结合value使用-->
+    <div id="app">
+        <input type="checkbox" v-model="checked" value="html" id="ifCheck1"/>
+        <label for="ifCheck1">HTML</label>
+        <input type="checkbox" v-model="checked" value="js" id="ifCheck2"/>
+        <label for="ifCheck2">JavaScript</label>
+        <input type="checkbox" v-model="checked" value="java" id="ifCheck3">
+        <label for="ifCheck3">Java</label>
+        <p>您选中的项是：{{ checked }}</p>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                checked: ['html', 'java'] //Script中如果checked的值与value的值一致时，就会选中该项，因此默认选中html和java两项
+            }
+        })
+    </script>
+</body>
+</html>

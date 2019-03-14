@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model绑定单个CheckBox</title>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="ifChecked" id="checkBox"/>
+        <label for="checkBox">选择状态：{{ ifChecked }}</label>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                ifChecked: false
+            }
+        })
+    </script>
+</body>
+</html>
