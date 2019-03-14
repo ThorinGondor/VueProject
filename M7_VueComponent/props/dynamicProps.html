@@ -9,7 +9,7 @@
         <label>
             <input type="text" v-model="parentMessage"/>
         </label>
-        <my-component :message="parentMessage"></my-component>
+        <my-component v-bind:message="parentMessage"></my-component>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script>
