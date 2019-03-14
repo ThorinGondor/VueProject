@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props是单向数据流</title>
+</head>
+<body>
+    <div id="app">
+        <my-component :init_count="9"></my-component>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('my-component', {
+            props: ['init_count'],
+            template: '<h3>子组件：{{ count }}</h3>',
+            data: function () {
+                console.log('从父级组件获取init_count！');
+                return {
+                    count: this.init_count
+                }
+            }
+        });
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>
