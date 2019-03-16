@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emit & v-model demo</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ total }}</p>
+        <my-component v-model="total"></my-component> <!--v-model等效于input，这里隐式地：total=this.counter，从而修改了父级数据total-->
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('my-component', {
+            template: '<button @click="handleInput">+1</button>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+               handleInput: function () { //子级组件点击事件触发该函数 handleInput，通过$emit将子级数据counter传给父级的 Input(v-model)
+                   var _this = this;
+                   _this.counter++;
+                   _this.$emit('input', this.counter);
+               }
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                total: 0 //父级数据total
+            }
+        })
+    </script>
+</body>
+</html>

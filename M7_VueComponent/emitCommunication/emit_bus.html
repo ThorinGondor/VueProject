@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emit bus demo</title>
+</head>
+<body>
+    <div id="app">
+        <!-下面两个组件：p和component-a并非父子组件，因此这两个组件之间的通讯需要设置一个总线-->
+        <p>{{ message }}</p>
+        <component-a></component-a>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        /**
+         *本节演示的是非父子组件之间的通讯，这需要设置一个中央事件总线，两个组件分别：发送数据到总线，监听总线
+         */
+        var bus = new Vue(); //建立一个空的Vue实例作为中央事件总线Bus
+        Vue.component('component-a', {
+            template: '<button @click="handleEvent">传递事件</button>',
+            methods: {
+                handleEvent: function () {
+                    bus.$emit('bus_line', '来自组件component-a的内容！'); //Step1：将数据发送到bus_line总线上
+                }
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: ''
+            },
+            mounted: function () {
+              var _this = this;
+              //Step2：监听bus_line总线传来的数据
+              bus.$on('bus_line', function (value) {
+                  _this.message = value;
+              })
+            }
+        })
+    </script>
+</body>
+</html>
