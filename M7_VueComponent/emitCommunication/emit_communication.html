@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emit</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ total }}</p>
+        <my-component @emit_increase="getTotal" @emit_decrease="getTotal"></my-component> <!--Step 2: emit_increase 接收到数据，触发方法 getTotal(value)-->
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('my-component', {
+            template: '<div><button @click="handleIncrease">+1</button><button @click="handleDecrease">-1</button></div>',
+            data: function () {
+                return {
+                    counter: 0 //counter是子级的数据
+                }
+            },
+            methods: {
+                handleIncrease: function () {
+                    this.counter ++;
+                    console.log('子级组件传输数据：'+this.counter);
+                    this.$emit('emit_increase', this.counter);
+                },
+                handleDecrease: function () {
+                    this.counter --;
+                    console.log('子级组件传输数据：'+this.counter);
+                    this.$emit('emit_decrease', this.counter);
+                }//Step 1:子级点击事件触发子级的方法，该方法将修改子级的counter数据，并使用emit方法传输数据给父级的 emit_increase
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                total: 0 //total是父级的数据
+            },
+            methods: {
+                getTotal: function (emit_counter) {
+                    console.log('父级组件接受数据 Get Total!'+ emit_counter);
+                    this.total = emit_counter;
+                } //Step 3: 该方法为父级的方法，emit_increase触发getTotal(value)：接受子级的数据并修改父级的total数据
+            }
+
+        })
+    </script>
+</body>
+</html>

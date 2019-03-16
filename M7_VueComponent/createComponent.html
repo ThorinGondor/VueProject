@@ -8,15 +8,17 @@
     <div id="app">
         <my-component></my-component>
     </div>
+    <template id="tmpl">
+        <div>
+            <h3>这是通过template元素，在外部定义的组件建构，这个方式有代码的智能提示和高亮</h3>
+            <h3>建议用此方法！</h3>
+        </div>
+    </template>
 
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script>
-        //Component全局注册，所有Vue实例都可以使用它
-        /**Vue.component() 创建组件
-        *第一个参数：组件的名称，就是一个标签形式来引入，第二个参数，Vue.extend 创建的组件，其中template就是组件将会展现的内容
-        */
         Vue.component('my-component', {
-            template: '<h3>这里是组件要展现的内容</h3>' // template展现了组件Component要展现的内容
+            template: '#tmpl' //建议使用这种方式创建component组件
         });
         const app = new Vue({
             el: "#app"
