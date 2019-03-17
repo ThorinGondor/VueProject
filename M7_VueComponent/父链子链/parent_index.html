@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父链索引</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <component-a></component-a>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('component-a', {
+           template: '<button @click="handleEvent">传输数据给父级</button>',
+           methods: {
+               handleEvent: function () {
+                   this.$parent.message = '传输数据给父级';
+               }
+           }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: ''
+            }
+        })
+    </script>
+</body>
+</html>

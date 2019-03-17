@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子链索引</title>
+</head>
+<body>
+    <div id="app">
+        父组件按钮：<button @click="visitChildren">点击访问子组件数据</button>
+        <component-a ref="compA"></component-a>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('component-a', {
+            template: '<div>子组件：{{ message }}</div>',
+            data: function () {
+                return {
+                    message: '子组件的原始内容'
+                }
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                visitChildren: function () {
+                    console.log(this.$refs.compA.message);
+                    this.$refs.compA.message = '修改子组件的内容！';
+                }
+            }
+        })
+    </script>
+</body>
+</html>

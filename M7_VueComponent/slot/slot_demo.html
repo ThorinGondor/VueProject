@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slot Demo</title>
+</head>
+<body>
+    <div id="app">
+        <child-component>
+            <h2 slot="header">标题</h2> <!--父组件设置了slot属性为header，将插入到具名为header的slot当中-->
+            <div slot="footer">@底部版权信息</div><!--父组件设置了slot属性为footer，将插入到具名为footer的slot当中-->
+            <p>正文内容</p><!--父组件未设置slot属性的元素，将插入到默认的slot（未具名）当中-->
+            <p>更多的正文内容</p>
+        </child-component>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('child-component', {
+            template: '\
+            <div class="container">\
+                <div class="header">\
+                    <slot name="header"></slot>\
+                </div>\
+                <div class="main">\
+                    <slot></slot>\
+                </div>\
+                <div class="footer">\
+                    <slot name="footer"></slot>\
+                </div>\
+            </div>'
+        }); //div main 设置了默认的slot，父组件没有用slot属性的元素都将在该slot中展示
+        var app = new Vue({
+            el: '#app',
+        })
+    </script>
+</body>
+</html>
