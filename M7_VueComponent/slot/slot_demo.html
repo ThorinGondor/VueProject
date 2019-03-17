@@ -27,8 +27,15 @@
                 <div class="footer">\
                     <slot name="footer"></slot>\
                 </div>\
-            </div>'
-        }); //div main 设置了默认的slot，父组件没有用slot属性的元素都将在该slot中展示
+            </div>',//div main 设置了默认的slot（没有使用name具名），父组件没有用slot属性的元素都将在该slot中展示
+
+            mounted: function () {
+                //访问slot的方法
+                console.log(this.$slots.header);
+                console.log(this.$slots.default);
+                console.log(this.$slots.footer);
+            }
+        });
         var app = new Vue({
             el: '#app',
         })
