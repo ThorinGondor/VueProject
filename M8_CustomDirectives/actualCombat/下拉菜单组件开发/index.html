@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单组件</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="main" v-click_external="handleClose">
+            <button @click="if_show = !if_show">点击显示下拉菜单</button>
+            <div class="dropDown" v-show="if_show">
+                <p>下拉框的内容，点击外部区域可以关闭</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="click_external.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

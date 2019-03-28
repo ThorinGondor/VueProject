@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-focus</title>
+</head>
+<body>
+    <div id="app">
+        自动聚焦：
+        <label>
+            <input type="text" v-my_focus/>
+        </label>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.directive('my_focus', {
+            inserted: function (el) {
+                el.focus();
+            }
+        });
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

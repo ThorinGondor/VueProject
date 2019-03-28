@@ -8,8 +8,14 @@ Vue.component('tabs', {
                     <slot></slot>\
                   </div>\
               </div>',
+    props: {
+        value: {
+            type: [String, Number]
+        }
+    },
     data: function () {
         return {
+            currentValue: this.value,
             navList: []
         }
     },
