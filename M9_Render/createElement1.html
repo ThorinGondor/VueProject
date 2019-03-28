@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>createElement用法1 基本参数</title>
+</head>
+<body>
+    <div id="app">
+        <ele></ele>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('ele', {
+            render: function (createElement) {
+                return createElement( //<div id="element" class="show">文本内容</div>
+                    'div',
+                    {
+                        class: {
+                            'show': this.if_show
+                        },
+                        attrs: {
+                            id: 'element'
+                        },
+                        on: {
+                            click: this.handleClick
+                        }
+                    },
+                    ['文本内容']
+                );
+            },
+            data: function () {
+                return {
+                    if_show: true
+                }
+            },
+            methods: {
+                handleClick: function () {
+                    console.log('Clicked! ');
+                }
+            }
+        });
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>
