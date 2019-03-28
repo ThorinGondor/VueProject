@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Render Demo</title>
+</head>
+<body>
+    <div id="app">
+        <anchor level="2" title="二级标题">二级标题</anchor>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component('anchor', {
+           props: {
+               level: {
+                   type: Number,
+                   required: true
+               },
+               title: {
+                   type: String,
+                   default: ''
+               }
+           },
+           render: function (createElement) {
+               return createElement(
+                    'h'+this.level, //<h2></h2>
+                   [ //[]是子结点
+                       createElement(
+                           'a', //<a href="#二级标题">二级标题</a>
+                           {
+                               domProps: {
+                                   href: '#' + this.title
+                               }
+                           },
+                           this.$slots.default //从父级获取数据 title
+                       )
+                   ]
+               )
+           }
+        });
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>
